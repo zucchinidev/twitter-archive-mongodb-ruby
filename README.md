@@ -9,6 +9,6 @@ in advance, probably consisting of multiple tables, and then declare those table
 none of that’s required, yet you’ll still preserve the rich structure of the Tweet docu-
 ments, and you’ll be able to query them effectively.
 
-TweetArchiver  will  consist  of  two  components:
-* the archiver and the viewer. The archiver will call the Twitter search API and store the relevant Tweets
-* the viewer will display the results in a web browser.
+TweetArchiver  will  consist  of  two  components, the archiver and the viewer:
+* The archiver will call the Twitter search API and store the relevant Tweets
+* The viewer will display the results in a web browser.
