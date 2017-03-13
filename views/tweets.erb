@@ -1,0 +1,59 @@
+<!DOCTYPE html>                                                        
+<html>                                                                 
+<head>                                                                 
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">                                                          
+</head>                                                             
+	<body>
+			<nav>
+		        <div class="nav-wrapper">
+		          <div class="col s12">
+		            <form>
+		              <div class="input-field">
+		                <input id="search" type="search" />
+		                <label for="search"><i class="material-icons">search</i></label>
+		                <i class="material-icons">close</i>
+		              </div>
+		            </form>
+		          </div>
+		        </div>
+			</nav> 
+		<div class="container">
+			<div class="section">
+				<% TAGS.each do |tag| %>
+				  <a href="/?tag=<%= URI::encode(tag) %>"><%= tag %></a>
+				<% end %>
+				<% @tweets.each do |tweet| %>
+					<div class="col s12 m7">
+					    <div class="card horizontal">
+							<div class="card-image">
+								<img src=<%= tweet['user']['profile_image_url'] %> />
+							</div>
+							<div class="card-stacked">
+						        <div class="card-content">
+									<h5>
+										<%= tweet['text'] %>
+									</h5>
+									<p>
+										<%= tweet['user']['screen_name'] %>
+									</p>
+									<small>
+										on <%= tweet['created_at'] %>
+									</small>
+						        </div>
+						        <div class="card-action">
+						          	<a href="http://twitter.com/<%= tweet['user']['screen_name'] %>">
+						          		<%= tweet['user']['screen_name'] %>
+						      		</a>
+						        </div>
+					      	</div>
+					    </div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</body>                                                                
+</html>
